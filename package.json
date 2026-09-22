@@ -1,0 +1,46 @@
+{
+  "name": "dev-toolbox-mcp",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.19.0",
+  "scripts": {
+    "check": "pnpm run format:check && pnpm run typecheck && pnpm test && pnpm run test:migrations",
+    "deploy": "pnpm run migrate:remote && wrangler deploy",
+    "dev": "wrangler dev",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "migrate:local": "wrangler d1 migrations apply dev-toolbox --local",
+    "migrate:remote": "wrangler d1 migrations apply dev-toolbox --remote",
+    "smoke:remote": "node scripts/remote-smoke.ts",
+    "test": "vitest run",
+    "test:migrations": "node scripts/check-migrations.ts",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "types": "wrangler types src/worker-configuration.d.ts --env-interface CloudflareBindings --include-runtime=false --strict-vars=false",
+    "deploy:production": "pnpm run migrate:remote && wrangler deploy",
+    "build:check": "wrangler deploy --dry-run --outdir .artifacts/worker"
+  },
+  "dependencies": {
+    "@cloudflare/workers-oauth-provider": "0.10.3",
+    "@modelcontextprotocol/server": "2.0.0",
+    "agents": "0.24.0",
+    "jose": "6.2.12",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "1.1.13",
+    "@cloudflare/workers-types": "5.20260921.1",
+    "@modelcontextprotocol/client": "2.0.0",
+    "@msw/cloudflare": "0.0.1",
+    "@types/node": "26.6.2",
+    "msw": "2.15.0",
+    "prettier": "3.9.8",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11",
+    "wrangler": "4.135.0"
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  }
+}

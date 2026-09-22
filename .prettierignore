@@ -1,0 +1,7 @@
+pnpm-lock.yaml
+worker-configuration.d.ts
+docs/cloudflare-mcp-oauth-field-guide.md
+node_modules/
+.wrangler/
+dist/
+.artifacts/

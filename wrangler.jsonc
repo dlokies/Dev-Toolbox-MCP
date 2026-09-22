@@ -1,0 +1,36 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "dev-toolbox-mcp",
+  "main": "src/index.ts",
+  "account_id": "43342065e67c17ef60c21006da5a4565",
+  "compatibility_date": "2026-09-22",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "dev.domenic.dev", "custom_domain": true }],
+  "observability": {
+    "enabled": false,
+  },
+  "vars": {
+    "PUBLIC_BASE_URL": "https://dev.domenic.dev",
+    "ACCESS_CLIENT_ID": "8d6f0714dcb42011617174ec5480b407e6eacfd2d1a471fd4495a13be69db8f2",
+    "ACCESS_AUTHORIZATION_URL": "https://young-flower-67f0.cloudflareaccess.com/cdn-cgi/access/sso/oidc/8d6f0714dcb42011617174ec5480b407e6eacfd2d1a471fd4495a13be69db8f2/authorization",
+    "ACCESS_TOKEN_URL": "https://young-flower-67f0.cloudflareaccess.com/cdn-cgi/access/sso/oidc/8d6f0714dcb42011617174ec5480b407e6eacfd2d1a471fd4495a13be69db8f2/token",
+    "ACCESS_JWKS_URL": "https://young-flower-67f0.cloudflareaccess.com/cdn-cgi/access/sso/oidc/8d6f0714dcb42011617174ec5480b407e6eacfd2d1a471fd4495a13be69db8f2/jwks",
+    "ACCESS_ISSUER": "https://young-flower-67f0.cloudflareaccess.com/cdn-cgi/access/sso/oidc/8d6f0714dcb42011617174ec5480b407e6eacfd2d1a471fd4495a13be69db8f2",
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "dev-toolbox",
+      "database_id": "a444b18c-6b05-4b3d-950b-5fd47f6d6ce1",
+      "migrations_dir": "migrations",
+    },
+  ],
+  "kv_namespaces": [
+    {
+      "binding": "OAUTH_KV",
+      "id": "6955c33a0b3c40aca5d4e4c69ed6fa9a",
+    },
+  ],
+}
